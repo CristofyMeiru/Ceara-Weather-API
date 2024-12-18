@@ -1,12 +1,5 @@
 var isShow = false;
 
-document.addEventListener('DOMContentLoaded', ()=>  {
-    var mapaCeara = document.getElementById("mapa-ceara");
-    mapaCeara.addEventListener('load', (e)=> {
-        setCityName()
-    })
-})
-
 //API dinamica com o wheathermap usando parametro do nome da cidade
 async function getWeather(cityName) {
     await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=45811b6de16f20623df6ecf0efd9e07c&lang=pt_br&units=metric
@@ -28,7 +21,7 @@ async function getWeather(cityName) {
 function setCityName() {
     var mapaCeara = document.getElementById("mapa-ceara");
     var conteudoMapa = mapaCeara.contentDocument;
-    console.log(conteudoMapa)
+
     var paths = conteudoMapa.querySelectorAll("path");
     paths.forEach((path) => {
         pathEvents(path);
@@ -42,10 +35,10 @@ function configureData(data) {
     var tempCelcius = document.getElementById("tempCelcius");
     var humidity = document.getElementById("humidity");
     var humidityIcon = document.getElementById("humidityIcon");
-    var feelLike = document.getElementById("feelLike")
-    
+    var feelLike = document.getElementById("feelLike");
+
     //Caracteristicas iniciais dos elementos
-    feelLike.innerHTML = ""
+    feelLike.innerHTML = "";
     humidityIcon.style.display = "block";
     humidity.innerHTML = "";
     descWeather.innerHTML = "";
@@ -68,7 +61,7 @@ function configureData(data) {
     //Sem mensagem de erro == Poder seguir com a formatação
     if (!data.message) {
         let temp = String(data.main.temp);
-        let feelsLike = String(data.main.feels_like)
+        let feelsLike = String(data.main.feels_like);
         document.querySelector(".iconSec").style.borderRight =
             "1px solid #8f8f8f";
         modalImage.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
@@ -77,7 +70,7 @@ function configureData(data) {
         tempCelcius.innerHTML = temp.slice(0, 2) + "°";
         humidityIcon.data = aboutHumidity(data.main.humidity);
         humidity.innerHTML = data.main.humidity + "%";
-        feelLike.innerHTML = "S. Termíca: " + feelsLike.slice(0, 2) + "°"
+        feelLike.innerHTML = "S. Termíca: " + feelsLike.slice(0, 2) + "°";
     }
 }
 
@@ -88,7 +81,6 @@ function pathEvents(path) {
     //Apenas se clicar o modal aparece, acabei fazendo mini ataque DoS por usar o mouseover :D
     //840 requisições ao wheaterapi em 1 minuto, recebi ate email de aviso que fui bloqueado D:
     path.addEventListener("click", (e) => {
-        console.log('foi')
         var windowWidth = ifWidth();
         getWeather(e.target.id);
         modal.style.left = `${rect.left + rect.width + windowWidth}px`;
@@ -106,7 +98,11 @@ function pathEvents(path) {
 function ifWidth() {
     var windowWi = window.innerWidth;
     switch (true) {
-        case windowWi > 1300:
+        case windowWi >= 1500 && windowWi < 1600:
+            return 370;
+        case windowWi >= 1400 && windowWi < 1500:
+            return 320;
+        case windowWi > 1300 && windowWi < 1400:
             return 270;
         case windowWi >= 1200 && windowWi < 1300:
             return 200;
@@ -125,7 +121,7 @@ function ifWidth() {
     }
 }
 function aboutHumidity(humidity) {
-  //Verificação a intensidade da umidade e retornando o diretorio correspondente de SVG
+    //Verificação a intensidade da umidade e retornando o diretorio correspondente de SVG
     switch (true) {
         case humidity <= 30:
             return "./public/humidity_low.svg";
@@ -137,6 +133,6 @@ function aboutHumidity(humidity) {
 }
 //Função inicial onde o codigo inteiro começa a rodar
 
-setInterval(() => {
-    setCityName()
+setTimeout(() => {
+    setCityName();
 }, 2000);
