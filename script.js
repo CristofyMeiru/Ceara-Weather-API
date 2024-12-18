@@ -71,7 +71,7 @@ function configureData(data) {
         let feelsLike = String(data.main.feels_like)
         document.querySelector(".iconSec").style.borderRight =
             "1px solid #8f8f8f";
-        modalImage.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+        modalImage.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
         modalTitle.innerHTML = `Tempo em ${data.name} / CE`;
         descWeather.innerHTML = data.weather[0].description;
         tempCelcius.innerHTML = temp.slice(0, 2) + "°";
