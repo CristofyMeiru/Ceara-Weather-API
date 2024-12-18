@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <title>API do tempo</title>
+        
+        <link rel="stylesheet" href="./style.css" />
+    </head>
+    <body>
+        <div class="conteiner">
+            <div class="modal" id="modal">
+                <section class="modalHeader">
+                    <object
+                        data="./public/location_on.svg"
+                        type="image/svg+xml"
+                        id="locationIcon"
+                    ></object>
+                    <title id="modalTitle"></title>
+                </section>
+                <section class="modalMain" id="modalMain">
+                    <div class="iconSec">
+                        <img src="" alt="icone-tempo" id="weatherIcon" />
+                        <span id="descWeather"></span>
+                    </div>
+                    <div class="tempSec">
+                        <span class="tempCelcius" id="tempCelcius">41°</span>
+                        <div class="tempDetails">
+                            <div class="humiditySec">
+                                <object
+                                    class="humidityIcon"
+                                    id="humidityIcon"
+                                    data="./public/humidity_mid.svg"
+                                    type="image/svg+xml"
+                                ></object>
+                                <span class="humidity" id="humidity">78</span>
+                            </div>
+                            <span class="feelLike" id="feelLike">S. Termica: 31ºC</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <object
+                data="./public/ceara.svg"
+                type="image/svg+xml"
+                id="mapa-ceara"
+            ></object>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>

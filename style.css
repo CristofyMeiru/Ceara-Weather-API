@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #0d0d0d;
+  color: #fff;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  color: white;
+  background-color: #1c1b23;
+  border: white solid 1px;
+  border-radius: 15px;
+  padding: 20px 40px;
+  left: 0;
+  top: 0;
+}
+.modal .modalMain {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.modal .modalHeader {
+  background-color: #28262b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font: bold;
+}
+.modal .modalHeader title {
+  margin-left: 5px;
+}
+.modal .modalHeader #locationIcon {
+  width: 20px;
+  height: auto;
+}
+.modal .modalMain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+.modal .modalMain .iconSec {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding-right: 20px;
+  margin-right: 20px;
+  border-right: 1px solid #8f8f8f;
+}
+.modal .modalMain .iconSec img {
+  width: 100px;  
+  height: auto;
+  margin: -15px;
+}
+.modal .modalMain .tempSec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.modal .modalMain .tempSec .tempCelcius {
+  font-size: 50px;
+  padding-left: 10px;
+}
+.modal .modalMain .tempSec .tempDetails .humiditySec {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.modal .modalMain .tempSec .tempDetails .humiditySec .humidityIcon {
+  width: 20px;
+  height: auto;
+}
+.modal .modalMain .tempSec .tempDetails .feelLike {
+  color: #acacac;
+  font-size: 15px;
+}
